@@ -1,0 +1,6 @@
+/.cache
+/data
+/metadata
+/ssh-data
+
+compile_commands.json
