@@ -6,6 +6,12 @@
 #include <stz2/cmd.h>
 #include <stz2/path.h>
 
+static Config cfg = {
+    .path = _0("./data"),
+    .meta = _0("./metadata"),
+    .url  = _0("http://10.11.99.1"),
+};
+
 // clang-format off
 Arg options[] = {
     {_("help"), no_argument,       0, _("Show help"),       ARG_Bool,   &cfg.help, false},

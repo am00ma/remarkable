@@ -1,6 +1,8 @@
 #include <stz2/parse.h>
 #include <stz2/types.h>
 
+// --------------- Command Line Options ---------------
+
 typedef struct
 {
     bool help;
@@ -9,11 +11,7 @@ typedef struct
     Str0 url;
 } Config;
 
-static Config cfg = {
-    .path = _0("./data"),
-    .meta = _0("./metadata"),
-    .url  = _0("http://10.11.99.1"),
-};
+// --------------- Doc type ---------------
 
 #define X_TABLE_RMK_DOCS(name, type)                                                                                   \
     X(Bookmarked, bool)                                                                                                \
@@ -42,6 +40,8 @@ typedef enum
 
 DECLARE_ARRAY(Docs, Doc);
 
+// --------------- Serialize, Deserialize ---------------
+
 SI Str parse__Doc(Parser* b, Doc* doc)
 {
     *doc = (Doc){};
@@ -63,7 +63,6 @@ SI Str parse__Doc(Parser* b, Doc* doc)
 
 SI Str parse__Docs(Parser* b, Docs* docs)
 {
-
     isize len  = 0;
     len       += consume__char(b, '[').len;
 
